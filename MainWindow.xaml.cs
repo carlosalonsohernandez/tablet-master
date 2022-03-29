@@ -20,9 +20,21 @@ namespace TabletMaster
     /// </summary>
     public partial class MainWindow : Window
     {
+        Point mousePos;
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void OnButtonClick(object sender, RoutedEventArgs e)
+        {
+            mousePos = MouseFunctions.GetPosition(this);
+            txtTop.Text = $"X = {mousePos.X} Y= {mousePos.Y}";
+        }
+
+        private void OnButtonSimulate(object sender, RoutedEventArgs e)
+        {
+            MouseFunctions.SimulateLeftClick(Convert.ToInt32(mousePos.X), Convert.ToInt32(mousePos.Y));
         }
     }
 }
