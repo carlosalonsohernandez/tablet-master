@@ -35,6 +35,25 @@
                        FontFamily="Fonts/#Poppins"/>
         </Grid>
 
-        <RadioButton Content="Hello" Foreground="White" FontSize="16" Grid.Row="1"></RadioButton>
+        <RadioButton Content="Home" 
+                     Foreground="White" 
+                     FontSize="16" 
+                     Grid.Row="1"
+                     Style="{StaticResource SideButtonTheme}">
+        </RadioButton>
+
+        <RadioButton Content="Function" 
+                     Foreground="White" 
+                     FontSize="16" 
+                     Grid.Row="2"
+                     Style="{StaticResource SideButtonTheme}">
+        </RadioButton>
+
+        <RadioButton Content="Contact" 
+                     Foreground="White" 
+                     FontSize="16" 
+                     Grid.Row="3"
+                     Style="{StaticResource SideButtonTheme}">
+        </RadioButton>
     </Grid>
 </Window>
