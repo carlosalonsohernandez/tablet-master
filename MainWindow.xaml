@@ -5,11 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TabletMaster"
         mc:Ignorable="d"
-        Title="Tablet Master" Height="450" Width="800">
-    <StackPanel>
-        <TextBlock Name="txtTop" Text="/////" HorizontalAlignment="Center" FontSize="32"></TextBlock>
-        <Button Name ="btnPosCapture" Width="100" Height="30" Click="OnButtonClick" Margin="10">Position Capture</Button>
-        <Button Name ="btnSimulateClick" Width="140" Height="30" Click="OnButtonSimulate" HorizontalAlignment="Center" Margin="10">Click to Simulate One!</Button>
-        
-    </StackPanel>
+        Title="Tablet Master" Height="450" Width="800"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="#181735">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <!--This is the top title bar, it houses a textblock-->
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="3">
+
+            <TextBlock Text="Tablet Master"
+                       FontSize="18"
+                       Foreground="White"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontFamily="Fonts/#Poppins"/>
+        </Grid>
+
+        <RadioButton Content="Hello" Foreground="White" FontSize="16" Grid.Row="1"></RadioButton>
+    </Grid>
 </Window>

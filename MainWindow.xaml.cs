@@ -29,7 +29,6 @@ namespace TabletMaster
         private void OnButtonClick(object sender, RoutedEventArgs e)
         {
             mousePos = MouseFunctions.GetPosition(this);
-            txtTop.Text = $"X = {mousePos.X} Y= {mousePos.Y}";
         }
 
         private void OnButtonSimulate(object sender, RoutedEventArgs e)
