@@ -5,6 +5,7 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
+            <BitmapImage x:Key="appIcon" UriSource="Assets\appicon.png"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/SideButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
