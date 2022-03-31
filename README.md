@@ -29,4 +29,4 @@ This project is licensed under the CC License.
 
 ## Acknowledgments
 
-* Inspiration from Payload and his GUI tutorials. His tutorials were/are a big help in understanding and using XAML. You can find his channel here [Payload](https://www.youtube.com/channel/UCOoKt2u-bE1NuELXSFaEdUw/featured)
+* Inspiration from Payload and his GUI tutorials. His tutorials were/are a big help in understanding and using XAML. You can find his channel here - [Payload](https://www.youtube.com/channel/UCOoKt2u-bE1NuELXSFaEdUw/featured)
