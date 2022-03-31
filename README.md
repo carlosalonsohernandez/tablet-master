@@ -1,3 +1,6 @@
+# TabletMaster
+The beta/development branch for tablet master.
+=======
 # Tablet Master
 
 One Paragraph of project description goes here

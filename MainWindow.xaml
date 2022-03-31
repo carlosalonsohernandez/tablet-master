@@ -5,11 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TabletMaster"
         mc:Ignorable="d"
-        Title="Tablet Master" Height="450" Width="800">
-    <StackPanel>
-        <TextBlock Name="txtTop" Text="/////" HorizontalAlignment="Center" FontSize="32"></TextBlock>
-        <Button Name ="btnPosCapture" Width="100" Height="30" Click="OnButtonClick" Margin="10">Position Capture</Button>
-        <Button Name ="btnSimulateClick" Width="140" Height="30" Click="OnButtonSimulate" HorizontalAlignment="Center" Margin="10">Click to Simulate One!</Button>
-        
-    </StackPanel>
+        Title="" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        Background="#181735">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="150"/>
+        </Grid.ColumnDefinitions>
+        <!--This is the top title bar, it houses a textblock for the title, and buttons for the custom toolbar-->
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="3" MouseDown="GridDraggingEventHandler">
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <Image Source="{StaticResource appIcon}" Margin="5,0,0,0" Height="20" Width="20"></Image>
+                <TextBlock Text="Tablet Master"
+                       FontSize="16"
+                       Foreground="#58556b"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"
+                       FontFamily="Fonts/#Poppins"/>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                <Button Width="20" Height="20"
+                        Content="🗕"
+                        Background="Transparent"
+                        Margin="0,4,0,0"
+                        BorderThickness="0"
+                        Foreground="#58556b"
+                        FontWeight="Bold"
+                        Click="MinimizingEventHandler"/>
+
+                <Button Width="20" Height="20"
+                        Content="╳"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="#58556b"
+                        FontWeight="Bold"
+                        Click="ClosingEventHandler"/>
+            </StackPanel>
+        </Grid>
+        <RadioButton Content="Home" 
+                     Foreground="White" 
+                     FontSize="16" 
+                     Grid.Row="1"
+                     Style="{StaticResource SideButtonTheme}">
+        </RadioButton>
+
+        <RadioButton Content="Function" 
+                     Foreground="White" 
+                     FontSize="16" 
+                     Grid.Row="2"
+                     Style="{StaticResource SideButtonTheme}">
+        </RadioButton>
+
+        <RadioButton Content="Contact" 
+                     Foreground="White" 
+                     FontSize="16" 
+                     Grid.Row="3"
+                     Style="{StaticResource SideButtonTheme}">
+        </RadioButton>
+    </Grid>
 </Window>
