@@ -1,4 +1,3 @@
-=======
 # Tablet Master
 
 This project will enhance the graphic tablet experience. Namely, this will rid the need of keybind optimization from programs in order to effectively use buttons. The program minimizes to system tray and monitors for specific keybind combinations that you will set up, then executes a position and simulates a mouse click instantly, almost acting like an artificial mouse instead of a keyboard.
