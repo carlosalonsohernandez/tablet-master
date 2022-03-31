@@ -25,7 +25,7 @@
             <ColumnDefinition Width="150"/>
         </Grid.ColumnDefinitions>
         <!--This is the top title bar, it houses a textblock for the title, and buttons for the custom toolbar-->
-        <Grid Background="#0F0F2D" Grid.ColumnSpan="3">
+        <Grid Background="#0F0F2D" Grid.ColumnSpan="3" MouseDown="GridDraggingEventHandler">
             <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
                 <Image Source="{StaticResource appIcon}" Margin="5,0,0,0" Height="20" Width="20"></Image>
                 <TextBlock Text="Tablet Master"

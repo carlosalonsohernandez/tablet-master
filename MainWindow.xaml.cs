@@ -59,5 +59,13 @@ namespace TabletMaster
         {
             WindowState = WindowState.Minimized;
         }
+
+        private void GridDraggingEventHandler(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ChangedButton == MouseButton.Left)
+            {
+                this.DragMove();
+            }
+        }
     }
 }
