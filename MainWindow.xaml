@@ -56,6 +56,7 @@
                         Click="ClosingEventHandler"/>
             </StackPanel>
         </Grid>
+        <!--Grid for top bar ends, main content begins-->
         <RadioButton Content="Home" 
                      Foreground="White" 
                      FontSize="16" 

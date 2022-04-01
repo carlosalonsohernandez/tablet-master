@@ -26,10 +26,12 @@ namespace TabletMaster
         public MainWindow()
         {
             InitializeComponent();
-
+            
+            //create a notifyIcon so application can hide to system tray
             System.Windows.Forms.NotifyIcon notifyIcon = new System.Windows.Forms.NotifyIcon();
             notifyIcon.Icon = new System.Drawing.Icon("appicon.ico");
             notifyIcon.Visible = true;
+            //when system tray double clicked, bring app back to normal status
             notifyIcon.DoubleClick +=
                 delegate (object sender, EventArgs args)
                 {
@@ -40,6 +42,7 @@ namespace TabletMaster
 
         protected override void OnStateChanged(EventArgs e)
         {
+            //When the window is minimized, hide in system tray
             if(WindowState == System.Windows.WindowState.Minimized){this.Hide();}
 
             base.OnStateChanged(e);
@@ -52,6 +55,7 @@ namespace TabletMaster
 
         private void ClosingEventHandler(object sender, RoutedEventArgs e)
         {
+            //close
             this.Close();
         }
 
@@ -62,6 +66,7 @@ namespace TabletMaster
 
         private void GridDraggingEventHandler(object sender, MouseButtonEventArgs e)
         {
+            // make app draggable when m1 is down on the top bar
             if(e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();
