@@ -9,10 +9,10 @@
     <StackPanel Height="450">
         <TextBlock Text="Tablet Master"
                    Foreground="White"
-                   FontSize="28"
+                   FontSize="36"
                    HorizontalAlignment="Center"/>
 
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Horizontal" Margin="10">
             <Image Source="{StaticResource mainIcon}" Margin="10" Height="250" Width="250"/>
             <TextBlock Text="Tablet Master is a C# WPF application written to help enhance the windows experience. In order to do this, the app uses global hotkeys and listens to those hotkeys to do its job. Please either minimize the application, or turn on hide to system tray upon exit below!"
                    Foreground="White"
