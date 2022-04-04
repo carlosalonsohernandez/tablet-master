@@ -2,13 +2,20 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:TabletMaster"
+             xmlns:viewModel="clr-namespace:TabletMaster.MVVM.ViewModel"
+             xmlns:view="clr-namespace:TabletMaster.MVVM.View"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <BitmapImage x:Key="appIcon" UriSource="Assets\appicon.png"/>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/SideButtonTheme.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <BitmapImage x:Key="appIcon" UriSource="Assets\appicon.png"/>
+            <BitmapImage x:Key="mainIcon" UriSource="Assets\tabletmaster.png"/>
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -4,11 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TabletMaster"
+        xmlns:viewModel="clr-namespace:TabletMaster.MVVM.ViewModel"        
         mc:Ignorable="d"
-        Title="" Height="450" Width="800"
+        Title="" Height="600" Width="920"
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="#181735">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -77,5 +82,12 @@
                      Grid.Row="3"
                      Style="{StaticResource SideButtonTheme}">
         </RadioButton>
+
+        <ContentControl Grid.Row="1"
+                        Grid.RowSpan="6"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        Margin="10"
+                        Content="{Binding CurrentView}"/>
     </Grid>
 </Window>

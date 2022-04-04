@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Drawing;
+using TabletMaster.MVVM.View;
 
 namespace TabletMaster
 {

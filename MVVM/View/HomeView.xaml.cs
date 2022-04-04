@@ -24,5 +24,9 @@ namespace TabletMaster.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void SystemTrayButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
     }
 }
