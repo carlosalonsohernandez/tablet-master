@@ -48,23 +48,23 @@ namespace TabletMaster
             base.OnStateChanged(e);
         }
 
-        private void SimulatingEventHandler(object sender, RoutedEventArgs e)
+        private void OnSimulateClicked(object sender, RoutedEventArgs e)
         {
             MouseFunctions.SimulateLeftClick(Convert.ToInt32(mousePos.X), Convert.ToInt32(mousePos.Y));
         }
 
-        private void ClosingEventHandler(object sender, RoutedEventArgs e)
+        private void OnCloseClicked(object sender, RoutedEventArgs e)
         {
             //close
             this.Close();
         }
 
-        private void MinimizingEventHandler(object sender, RoutedEventArgs e)
+        private void OnMinimizeClicked(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
         }
 
-        private void GridDraggingEventHandler(object sender, MouseButtonEventArgs e)
+        private void OnTopBarDragged(object sender, MouseButtonEventArgs e)
         {
             // make app draggable when m1 is down on the top bar
             if(e.ChangedButton == MouseButton.Left)
