@@ -13,8 +13,17 @@
 
             <BitmapImage x:Key="appIcon" UriSource="Assets\appicon.png"/>
             <BitmapImage x:Key="mainIcon" UriSource="Assets\tabletmaster.png"/>
+            
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
                 <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ContactViewModel}">
+                <view:ContactView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:FunctionViewModel}">
+                <view:FunctionView/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

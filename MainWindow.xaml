@@ -66,22 +66,26 @@
                      Foreground="White" 
                      FontSize="16" 
                      Grid.Row="1"
-                     Style="{StaticResource SideButtonTheme}">
-        </RadioButton>
+                     Style="{StaticResource SideButtonTheme}"
+                     IsChecked="True"
+                     Command="{Binding HomeViewCommand}"/>
+
 
         <RadioButton Content="Function" 
                      Foreground="White" 
                      FontSize="16" 
                      Grid.Row="2"
-                     Style="{StaticResource SideButtonTheme}">
-        </RadioButton>
+                     Style="{StaticResource SideButtonTheme}"
+                     Command="{Binding FunctionViewCommand}"/>
+
 
         <RadioButton Content="Contact" 
                      Foreground="White" 
                      FontSize="16" 
                      Grid.Row="3"
-                     Style="{StaticResource SideButtonTheme}">
-        </RadioButton>
+                     Style="{StaticResource SideButtonTheme}"
+                     Command="{Binding ContactViewCommand}"/>
+
 
         <ContentControl Grid.Row="1"
                         Grid.RowSpan="6"

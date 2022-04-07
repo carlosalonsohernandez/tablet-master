@@ -9,7 +9,15 @@ namespace TabletMaster.MVVM.ViewModel
 {
     internal class MainViewModel : ObservableObject
     {
+        public RelayCommand HomeViewCommand { get; set; }
+        public RelayCommand FunctionViewCommand { get; set; }
+        public RelayCommand ContactViewCommand { get; set; }
+
+
         public HomeViewModel HomeVM { get; set; }
+        public FunctionViewModel FunctionVM { get; set; }
+
+        public ContactViewModel ContactVM { get; set; }
 
         private object currentView { get; set; }
         
@@ -26,7 +34,24 @@ namespace TabletMaster.MVVM.ViewModel
         public MainViewModel()
         {
             HomeVM = new HomeViewModel();
+            FunctionVM = new FunctionViewModel();
+            ContactVM = new ContactViewModel();
             CurrentView = HomeVM;
+
+            HomeViewCommand = new RelayCommand(p =>
+            {
+                CurrentView = HomeVM;
+            });
+
+            FunctionViewCommand = new RelayCommand(p =>
+            {
+                CurrentView = FunctionVM;
+            });
+
+            ContactViewCommand = new RelayCommand(p =>
+            {
+                CurrentView = ContactVM;
+            });
         }
     }
 }
