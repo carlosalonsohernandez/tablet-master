@@ -25,8 +25,18 @@ namespace TabletMaster.MVVM.View
             InitializeComponent();
         }
 
-        private void SystemTrayButton_Click(object sender, RoutedEventArgs e)
+        private void SystemTrayCheckboxChanged(object sender, RoutedEventArgs e)
         {
+            //Whenever the checkbox is changed, we update the config according to it
+            if (SystemTrayCheckbox.IsChecked == true)
+            {
+                Core.AppSettings.config.HideOnExit = true;
+            }
+            else
+            {
+                Core.AppSettings.config.HideOnExit = false;
+            }
         }
+
     }
 }

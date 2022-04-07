@@ -22,6 +22,6 @@
         </StackPanel>
         <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="28">Settings</TextBlock>
 
-        <RadioButton Name="SystemTrayButton" Click="SystemTrayButton_Click" Width="270" Content="Hide To System Tray Upon Exit" Margin="10" Foreground="White" FontSize="18" HorizontalAlignment="Center"></RadioButton>
+        <CheckBox Name="SystemTrayCheckbox" Click="SystemTrayCheckboxChanged" Width="270" Content="Hide To System Tray Upon Exit" Margin="10" Foreground="White" FontSize="18" HorizontalAlignment="Center"></CheckBox>
     </StackPanel>
 </UserControl>

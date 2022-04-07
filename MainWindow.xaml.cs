@@ -1,20 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Forms;
 using System.Drawing;
-using TabletMaster.MVVM.View;
+using System.Windows.Input;
+using TabletMaster.Core;
 
 namespace TabletMaster
 {
@@ -27,11 +15,23 @@ namespace TabletMaster
         public MainWindow()
         {
             InitializeComponent();
-            
+            AppSettings.Initialize();
+
             //create a notifyIcon so application can hide to system tray
             System.Windows.Forms.NotifyIcon notifyIcon = new System.Windows.Forms.NotifyIcon();
+
+            // create system tray notify icon
             notifyIcon.Icon = new System.Drawing.Icon("appicon.ico");
             notifyIcon.Visible = true;
+
+            // add context menu strip to be able to exit when hidden in system tray
+            notifyIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
+            notifyIcon.ContextMenuStrip.Items.Add("Exit!", Image.FromFile("appicon.ico"),
+                delegate (object sender, EventArgs args)
+            {
+                this.Close();
+            });
+
             //when system tray double clicked, bring app back to normal status
             notifyIcon.DoubleClick +=
                 delegate (object sender, EventArgs args)
@@ -39,14 +39,6 @@ namespace TabletMaster
                     this.Show();
                     this.WindowState = WindowState.Normal;
                 };
-        }
-
-        protected override void OnStateChanged(EventArgs e)
-        {
-            //When the window is minimized, hide in system tray
-            if(WindowState == System.Windows.WindowState.Minimized){this.Hide();}
-
-            base.OnStateChanged(e);
         }
 
         private void OnSimulateClicked(object sender, RoutedEventArgs e)
@@ -57,7 +49,14 @@ namespace TabletMaster
         private void OnCloseClicked(object sender, RoutedEventArgs e)
         {
             //close
+            if (Core.AppSettings.config.HideOnExit)
+            {
+                this.Hide();
+            }
+            else
+            {
             this.Close();
+            }
         }
 
         private void OnMinimizeClicked(object sender, RoutedEventArgs e)
