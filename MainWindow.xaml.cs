@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Drawing;
 using System.Windows.Input;
-using TabletMaster.Core;
+using TabletMaster.Config;
 
 namespace TabletMaster
 {
@@ -17,14 +17,14 @@ namespace TabletMaster
             InitializeComponent();
             AppSettings.Initialize();
 
-            //create a notifyIcon so application can hide to system tray
+            // Create a notifyIcon so application can hide to system tray
             System.Windows.Forms.NotifyIcon notifyIcon = new System.Windows.Forms.NotifyIcon();
 
-            // create system tray notify icon
+            // Create system tray notify icon
             notifyIcon.Icon = new System.Drawing.Icon("appicon.ico");
             notifyIcon.Visible = true;
 
-            // add context menu strip to be able to exit when hidden in system tray
+            // Add context menu strip to be able to exit when hidden in system tray
             notifyIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             notifyIcon.ContextMenuStrip.Items.Add("Exit!", Image.FromFile("appicon.ico"),
                 delegate (object sender, EventArgs args)
@@ -32,7 +32,7 @@ namespace TabletMaster
                 this.Close();
             });
 
-            //when system tray double clicked, bring app back to normal status
+            // When system tray double clicked, bring app back to normal status
             notifyIcon.DoubleClick +=
                 delegate (object sender, EventArgs args)
                 {
@@ -48,8 +48,8 @@ namespace TabletMaster
 
         private void OnCloseClicked(object sender, RoutedEventArgs e)
         {
-            //close
-            if (Core.AppSettings.config.HideOnExit)
+            // If the config files are set up to hide to system tray, do so. Otherwise, the app closes normally.
+            if (AppSettings.config.HideOnExit)
             {
                 this.Hide();
             }
@@ -66,7 +66,7 @@ namespace TabletMaster
 
         private void OnTopBarDragged(object sender, MouseButtonEventArgs e)
         {
-            // make app draggable when m1 is down on the top bar
+            // Make app draggable when m1 is down on the top bar
             if(e.ChangedButton == MouseButton.Left)
             {
                 this.DragMove();

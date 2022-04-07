@@ -151,8 +151,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Core\AppSettings.cs" />
-    <Compile Include="Core\ConfigHandler.cs" />
+    <Compile Include="Config\AppSettings.cs" />
+    <Compile Include="Config\AppConfig.cs" />
     <Compile Include="Core\MouseFunctions.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />

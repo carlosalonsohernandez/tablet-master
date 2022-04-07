@@ -6,11 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
-namespace TabletMaster.Core
+namespace TabletMaster.Config
 {
     internal class AppSettings
     {
-        public static ConfigHandler config;
+        public static AppConfig config;
 
         //get the config path, might be worth using another method to get the path
         static string configPath = System.IO.Directory.GetParent(@"../../").FullName +
@@ -19,7 +19,7 @@ namespace TabletMaster.Core
         public static void Initialize()
         {
             //we set config to a new instance of the class that holds our settings
-            config = new ConfigHandler();
+            config = new AppConfig();
 
             //build config file, bind to ConfigHandler instance
             ConfigurationBuilder configBuilder = new ConfigurationBuilder();

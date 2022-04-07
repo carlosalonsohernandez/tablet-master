@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TabletMaster.Core
+namespace TabletMaster.Config
 {
     /// <summary>
     /// This class handles the different configurations that are available in the JSON config file.
     /// </summary>
-    internal class ConfigHandler
+    internal class AppConfig
     {
         public bool HideOnExit { get; set; }
     }

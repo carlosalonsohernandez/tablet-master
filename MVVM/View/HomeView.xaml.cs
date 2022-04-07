@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TabletMaster.Config;
 
 namespace TabletMaster.MVVM.View
 {
@@ -30,11 +31,11 @@ namespace TabletMaster.MVVM.View
             //Whenever the checkbox is changed, we update the config according to it
             if (SystemTrayCheckbox.IsChecked == true)
             {
-                Core.AppSettings.config.HideOnExit = true;
+                AppSettings.config.HideOnExit = true;
             }
             else
             {
-                Core.AppSettings.config.HideOnExit = false;
+                AppSettings.config.HideOnExit = false;
             }
         }
 
