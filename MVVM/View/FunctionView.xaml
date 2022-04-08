@@ -20,7 +20,7 @@
 
         <Label Content="Modifier" Foreground="White" FontSize="18" Margin="290,50,0,0" HorizontalAlignment="Left"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
-            <ComboBox Width="100" ToolTip="The modifier for the keyboard shortcut you will use." 
+            <ComboBox Name ="cbModifier" Width="100" ToolTip="The modifier for the keyboard shortcut you will use." 
                   Margin="30,10,0,0" HorizontalAlignment="Left">
                 <ComboBoxItem Content="CTRL"/>
                 <ComboBoxItem Content="SHIFT"/>
@@ -30,9 +30,19 @@
                      MaxLength="1" Width="100" 
                      Margin="10,10,0,0"
                      PreviewTextInput="textBoxKeyChecker"/>
-            <Button Name="btnConfirm" Content="Confirm" Margin="10,0,0,0" Height="25" Width="60" VerticalAlignment="Bottom"/>
+            <Button Name="btnConfirm" Content="Confirm" 
+                    Margin="10,0,0,0" Height="25" Width="60" 
+                    VerticalAlignment="Bottom"
+                    Click="btnConfirmClicked"/>
+            
             <Button Name="btnSimulate" Content="Simulate" Margin="10,0,0,0" Height="25" Width="60" VerticalAlignment="Bottom" Click="btnSimulateClicked"/>
         </StackPanel>
+        <Label Content="Current Modifier + Key Combo"
+               Foreground="White"
+               FontSize="18"/>
+        
+        <TextBox Margin="10" Width="300" Height="30"
+                 IsReadOnly="True" Name ="tbCurrentHotkey"/>
         <ListBox Height="100" Margin="20" Width="300" Name="lbHotkeysTracked"/>
     </StackPanel>
 </UserControl>

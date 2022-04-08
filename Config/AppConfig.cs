@@ -14,19 +14,11 @@ namespace TabletMaster.Config
     /// </summary>
     internal class AppConfig
     {
-        private int mousePosX;
         public bool HideOnExit { get; set; }
-        public int SavedMousePositionX {
-            get
-            {
-                return mousePosX;
-            } set
-            {
-                editJSON("SavedMousePositionX", value.ToString());
-                mousePosX = value;
-            } 
-        }
+        public int SavedMousePositionX { get; set; }
         public int SavedMousePositionY { get; set; }
+        public string Modifier { get; set; }
+        public string Key { get; set; }
 
         private void editJSON(string token, string replacement)
         {
