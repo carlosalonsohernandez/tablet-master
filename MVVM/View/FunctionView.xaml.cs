@@ -22,6 +22,8 @@ namespace TabletMaster.MVVM.View
 
             // Create hotkey to save the mouse position
             HotkeysHandler.AddHotkey(new HotkeyFunction(ModifierKeys.Control, Key.S, () => { SaveMousePos(); }));
+
+            // Populate the text of the textBox on startup with the default modifier and key
             tbCurrentHotkey.Text = $"Modifier: {AppSettings.config.Modifier} Key: {AppSettings.config.Key}";
         }
 
@@ -31,7 +33,11 @@ namespace TabletMaster.MVVM.View
 
             return !reg.IsMatch(content);
         }
-
+        
+        /// <summary>
+        /// This method saves the current mouse position when it is called. It currently pairs with a list
+        /// for some quick and dirty debugging but will eventually stand on its own
+        /// </summary>
         public void SaveMousePos()
         {
             mousePos = System.Windows.Forms.Control.MousePosition;
@@ -42,6 +48,9 @@ namespace TabletMaster.MVVM.View
 
         }
 
+        /// <summary>
+        /// This method checks the textBox for non-letter input and stops it from happening
+        /// </summary>
         private void textBoxKeyChecker(object sender, TextCompositionEventArgs e)
         {
             e.Handled = IsTextAlphabetic(e.Text);
@@ -54,6 +63,7 @@ namespace TabletMaster.MVVM.View
 
         private void btnConfirmClicked(object sender, RoutedEventArgs e)
         {
+            //If the user has selected something on both the comboBox and textBox
             if(cbModifier.SelectedIndex > -1 && textBoxKey.Text.Length > 0)
             {
                 MessageBox.Show("Confirmed!");
