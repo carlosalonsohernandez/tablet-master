@@ -27,5 +27,10 @@ namespace TabletMaster.Config
             IConfigurationRoot configRoot = configBuilder.Build();
             configRoot.Bind(config);
         }
+
+        public static string getConfigPath()
+        {
+            return configPath;
+        }
     }
 }

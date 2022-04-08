@@ -3,6 +3,7 @@ using System.Windows;
 using System.Drawing;
 using System.Windows.Input;
 using TabletMaster.Config;
+using TabletMaster.Core;
 
 namespace TabletMaster
 {
@@ -14,6 +15,7 @@ namespace TabletMaster
         System.Windows.Point mousePos;
         public MainWindow()
         {
+            //On app startup, initialize with several methods
             InitializeComponent();
             AppSettings.Initialize();
 
@@ -28,9 +30,9 @@ namespace TabletMaster
             notifyIcon.ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip();
             notifyIcon.ContextMenuStrip.Items.Add("Exit!", Image.FromFile("appicon.ico"),
                 delegate (object sender, EventArgs args)
-            {
-                this.Close();
-            });
+                {
+                    this.Close();
+                });
 
             // When system tray double clicked, bring app back to normal status
             notifyIcon.DoubleClick +=
@@ -41,6 +43,12 @@ namespace TabletMaster
                 };
         }
 
+        public void testHotkey()
+        {
+            MessageBox.Show("Hotkey pressed!");
+        }
+
+        // Methods + Event Handlers
         private void OnSimulateClicked(object sender, RoutedEventArgs e)
         {
             MouseFunctions.SimulateLeftClick(Convert.ToInt32(mousePos.X), Convert.ToInt32(mousePos.Y));

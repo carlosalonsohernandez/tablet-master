@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TabletMaster"
         xmlns:viewModel="clr-namespace:TabletMaster.MVVM.ViewModel"        
         mc:Ignorable="d"
-        Title="" Height="600" Width="920"
+        Title="SoleWindow" Height="600" Width="920"
         ResizeMode="NoResize"
         WindowStyle="None"
         Background="#181735">

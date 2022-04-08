@@ -9,6 +9,7 @@
     <StackPanel Height="450">
         <TextBlock Text="Tablet Master"
                    Foreground="White"
+                   FontFamily="/Fonts/#Poppins"
                    FontSize="36"
                    HorizontalAlignment="Center"/>
 
@@ -20,7 +21,7 @@
                    Width="450"
                    FontSize="18"/>
         </StackPanel>
-        <TextBlock Foreground="White" HorizontalAlignment="Center" FontSize="28">Settings</TextBlock>
+        <TextBlock Foreground="White" HorizontalAlignment="Center" FontFamily="/Fonts/#Poppins" FontSize="28">Settings</TextBlock>
 
         <CheckBox Name="SystemTrayCheckbox" Click="SystemTrayCheckboxChanged" Width="270" Content="Hide To System Tray Upon Exit" Margin="10" Foreground="White" FontSize="18" HorizontalAlignment="Center"></CheckBox>
     </StackPanel>

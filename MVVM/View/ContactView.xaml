@@ -8,6 +8,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel Height="450">
         <TextBlock Text="Contact"
+                   FontFamily="/Fonts/#Poppins"
                    Foreground="White"
                    FontSize="36"
                    Margin="0,40,0,20"
@@ -21,10 +22,12 @@
                    FontSize="18"/>
         <StackPanel Orientation="Horizontal" Margin="0,30,0,0">
             <TextBlock Text="Email:"
+                       FontFamily="/Fonts/#Poppins"
                        Foreground="White"
                        Margin="150,0,0,0"
                        FontSize="28"/>
             <TextBlock Text="Github:"
+                       FontFamily="/Fonts/#Poppins"
                        Foreground="White"
                        Margin="270,0,0,0"
                        FontSize="28"/>

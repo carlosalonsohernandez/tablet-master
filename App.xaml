@@ -5,6 +5,7 @@
              xmlns:viewModel="clr-namespace:TabletMaster.MVVM.ViewModel"
              xmlns:view="clr-namespace:TabletMaster.MVVM.View"
              StartupUri="MainWindow.xaml">
+    
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
