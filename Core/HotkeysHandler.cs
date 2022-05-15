@@ -61,6 +61,12 @@ namespace TabletMaster.Core
             Hotkeys.Remove(hotkey);
         }
 
+        public static List<HotkeyFunction> getHotkeyList()
+        {
+            var copiedHotkeysList = new List<HotkeyFunction>(Hotkeys);
+            return copiedHotkeysList;
+        }
+
         //Gives the hook the callback
         private static IntPtr SetHook(LowLevelKeyboardProc proc)
         {

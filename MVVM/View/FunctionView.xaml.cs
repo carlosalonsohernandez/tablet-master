@@ -71,11 +71,17 @@ namespace TabletMaster.MVVM.View
                 AppSettings.config.Key = textBoxKey.Text;
 
                 tbCurrentHotkey.Text = $"Modifier: {AppSettings.config.Modifier} Key: {AppSettings.config.Key}";
+                HotkeysHandler.AddHotkey(new HotkeyFunction(cbModifier.Text, textBoxKey.Text, () => { SayHi(); }));
             }
             else
             {
                 MessageBox.Show("Not enough information!");
             }
+        }
+
+        private void SayHi()
+        {
+            MessageBox.Show("New Hotkey Pressed!");
         }
     }
 }

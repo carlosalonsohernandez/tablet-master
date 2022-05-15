@@ -2,6 +2,8 @@
   "HideOnExit": false,
   "SavedMousePositionX": 0,
   "SavedMousePositionY": 0,
-  "Modifier": "CTRL",
-  "Key": "U"
+  "Hotkey": {
+    "Modifier": "CTRL",
+    "Key": "U"
+  }
 }
