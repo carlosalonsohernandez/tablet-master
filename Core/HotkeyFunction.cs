@@ -74,5 +74,11 @@ namespace TabletMaster.Core
 
             throw new ArgumentNullException(nameof(keyParsed));
         }
+
+        // Override ToString to get a more pleasant string returned when using it
+        public override string ToString()
+        {
+            return $"Modifier: {Modifier} Key: {Key}";
+        }
     }
 }

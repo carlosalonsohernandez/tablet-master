@@ -6,6 +6,7 @@ using TabletMaster.Core;
 using TabletMaster.Config;
 using System.Drawing;
 using System.Windows;
+using System.Collections.Generic;
 
 namespace TabletMaster.MVVM.View
 {
@@ -41,11 +42,9 @@ namespace TabletMaster.MVVM.View
         public void SaveMousePos()
         {
             mousePos = System.Windows.Forms.Control.MousePosition;
-            lbHotkeysTracked.Items.Add($"X = {mousePos.X} Y = {mousePos.Y}");
+            tbCurrentMousePos.Text = $"X = {mousePos.X} Y = {mousePos.Y}";
             AppSettings.config.SavedMousePositionX = mousePos.X;
             AppSettings.config.SavedMousePositionY = mousePos.Y;
-            lbHotkeysTracked.Items.Add($"Saved AppSettings: X = {AppSettings.config.SavedMousePositionX} Y = {AppSettings.config.SavedMousePositionY}");
-
         }
 
         /// <summary>
@@ -71,17 +70,17 @@ namespace TabletMaster.MVVM.View
                 AppSettings.config.Key = textBoxKey.Text;
 
                 tbCurrentHotkey.Text = $"Modifier: {AppSettings.config.Modifier} Key: {AppSettings.config.Key}";
-                HotkeysHandler.AddHotkey(new HotkeyFunction(cbModifier.Text, textBoxKey.Text, () => { SayHi(); }));
+
+                HotkeysHandler.AddHotkey(new HotkeyFunction(cbModifier.Text, textBoxKey.Text, () => {
+                    MouseFunctions.SimulateLeftClick(Convert.ToInt32(mousePos.X), Convert.ToInt32(mousePos.Y));
+                }));
+
+                tbHotkeysTracked.Text = String.Join("\n", HotkeysHandler.getStringHotkeyList());
             }
             else
             {
                 MessageBox.Show("Not enough information!");
             }
-        }
-
-        private void SayHi()
-        {
-            MessageBox.Show("New Hotkey Pressed!");
         }
     }
 }

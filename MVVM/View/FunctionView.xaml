@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:TabletMaster.MVVM.View"
+             xmlns:local="clr-namespace:TabletMaster.MVVM.View" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
@@ -18,7 +18,7 @@
                    FontSize="18"
                    HorizontalAlignment="Center"/>
 
-        <Label Content="Modifier" Foreground="White" FontSize="18" Margin="290,10,0,0" HorizontalAlignment="Left"/>
+        <Label Content="Modifier" Foreground="White" FontSize="18" Margin="290,5,0,0" HorizontalAlignment="Left"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <ComboBox Name ="cbModifier" Width="100" ToolTip="The modifier for the keyboard shortcut you will use." 
                   Margin="30,10,0,0" HorizontalAlignment="Left">
@@ -43,9 +43,19 @@
                Foreground="White"
                FontSize="18"/>
         
-        <TextBox Margin="10" Width="300" Height="30"
+        <TextBox Margin="5" Width="300" Height="30"
                  IsReadOnly="True" Name ="tbCurrentHotkey"/>
+
+        <Label Content="Current Saved Mouse Position"
+               Foreground="White"
+               FontSize="18"/>
+        <TextBox Margin="5" Width="300" Height="30"
+                 IsReadOnly="True" Name ="tbCurrentMousePos"/>
         
-        <ListBox Height="100" Margin="20" Width="300" Name="lbHotkeysTracked"/>
+        <Label Content="Current Hotkey List"
+               Foreground="White"
+               FontSize="18"/>
+
+        <TextBox Height="30" Margin="5" Width="300" Name="tbHotkeysTracked"/>
     </StackPanel>
 </UserControl>
