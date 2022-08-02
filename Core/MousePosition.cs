@@ -27,5 +27,10 @@ namespace TabletMaster.Core
         {
             return this.MouseY;
         }
+
+        public override string ToString()
+        {
+            return $"({MouseX},{MouseY})";
+        }
     }
 }

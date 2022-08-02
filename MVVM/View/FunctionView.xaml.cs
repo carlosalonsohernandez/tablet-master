@@ -64,18 +64,26 @@ namespace TabletMaster.MVVM.View
 
         private void btnConfirmClicked(object sender, RoutedEventArgs e)
         {
-            //If the user has selected something on both the comboBox and textBox
-            if(cbModifier.SelectedIndex > -1 && textBoxKey.Text.Length > 0)
+            //If the user has selected something on both the comboBox and the textBox
+            if (textBoxKey.Text.Equals("S"))
+            {
+                MessageBox.Show("Error: Key cannot be the same as the save mouse position key!");
+            }
+            else if (cbModifier.SelectedIndex > -1 && textBoxKey.Text.Length > 0)
             {
                 MessageBox.Show("Confirmed!");
                 AppSettings.config.Modifier = cbModifier.Text;
                 AppSettings.config.Key = textBoxKey.Text;
 
+                var newMousePos = new MousePosition((int)mousePos.X, (int)mousePos.Y);
+                var newHotkey = new HotkeyFunction(cbModifier.Text, textBoxKey.Text, () =>
+                {
+                    MouseFunctions.SimulateLeftClick(newMousePos);
+                }, newMousePos);
+
                 tbCurrentHotkey.Text = $"Modifier: {AppSettings.config.Modifier} Key: {AppSettings.config.Key}";
 
-                HotkeysHandler.AddHotkey(new HotkeyFunction(cbModifier.Text, textBoxKey.Text, () => {
-                    MouseFunctions.SimulateLeftClick(Convert.ToInt32(mousePos.X), Convert.ToInt32(mousePos.Y));
-                }));
+                HotkeysHandler.AddHotkey(newHotkey);
 
                 tbHotkeysTracked.Text = String.Join("\n", HotkeysHandler.getStringHotkeyList());
             }

@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using TabletMaster.Core;
 
 namespace TabletMaster
 {
@@ -27,6 +28,26 @@ namespace TabletMaster
             SetCursorPos(xpos, ypos);
             mouse_event(MOUSEEVENTF_LEFTDOWN, xpos, ypos, 0, 0);
             mouse_event(MOUSEEVENTF_LEFTUP, xpos, ypos, 0, 0);
+        }
+
+        public static void SimulateLeftClick(HotkeyFunction hotkey)
+        {
+            int mouseX = hotkey.getMousePos().getMouseX();
+            int mouseY = hotkey.getMousePos().getMouseY();
+
+            SetCursorPos(mouseX, mouseY);
+            mouse_event(MOUSEEVENTF_LEFTDOWN, mouseX, mouseY, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, mouseX, mouseY, 0, 0);
+        }
+
+        public static void SimulateLeftClick(MousePosition mousePos)
+        {
+            int mouseX = mousePos.getMouseX();
+            int mouseY = mousePos.getMouseY();
+
+            SetCursorPos(mouseX, mouseY);
+            mouse_event(MOUSEEVENTF_LEFTDOWN, mouseX, mouseY, 0, 0);
+            mouse_event(MOUSEEVENTF_LEFTUP, mouseX, mouseY, 0, 0);
         }
     }
 }

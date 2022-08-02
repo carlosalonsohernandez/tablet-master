@@ -14,8 +14,10 @@ namespace TabletMaster.Core
         public Action CallbackFunction { get; set; }
         public bool CanExecute { get; set; }
 
+        private MousePosition MousePosition { get; set; }
+
         private Dictionary<HotkeyFunction, MousePosition> MousePositionDict = new Dictionary<HotkeyFunction, MousePosition>();
-        
+
 
         // Simple constructor
         public HotkeyFunction(ModifierKeys modifier, Key key, Action callbackFunc, MousePosition mousePos = null, bool canExecute = true)
@@ -24,20 +26,24 @@ namespace TabletMaster.Core
             this.Key = key;
             this.CallbackFunction = callbackFunc;
             this.CanExecute = canExecute;
+            this.MousePosition = mousePos;
 
             MousePositionDict.Add(this, mousePos);
         }
 
         // We create a constructor that takes strings in order to use XML and app values or strings to instantiate Hotkeys
-        public HotkeyFunction(string modifier, string key, Action callbackFunc, bool canExecute = true)
+        public HotkeyFunction(string modifier, string key, Action callbackFunc, MousePosition mousePos = null, bool canExecute = true)
         {
             // Use our regulate methods in order to work with the new strings in this constructor
             this.Modifier = RegulateModifier(modifier);
             this.Key = RegulateKey(key);
-            
+
             // The rest get normal value declarations
             this.CallbackFunction = callbackFunc;
             this.CanExecute = canExecute;
+            this.MousePosition = mousePos;
+
+            MousePositionDict.Add(this, mousePos);
         }
 
         /// <summary>
@@ -79,9 +85,22 @@ namespace TabletMaster.Core
             throw new ArgumentNullException(nameof(keyParsed));
         }
 
+        public MousePosition getMousePos()
+        {
+            if(MousePositionDict.TryGetValue(this, out var mousePos))
+            {
+                return mousePos;
+            }
+            return new MousePosition(0, 0);
+        }
+
         // Override ToString to get a more pleasant string returned when using it
         public override string ToString()
         {
+            if(this.MousePosition != null)
+            {
+                return $"Modifier: {Modifier} Key: {Key} MousePos(X,Y): {MousePosition.ToString()}";
+            }
             return $"Modifier: {Modifier} Key: {Key}";
         }
 

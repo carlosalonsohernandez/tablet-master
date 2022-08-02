@@ -43,17 +43,6 @@ namespace TabletMaster
                 };
         }
 
-        public void testHotkey()
-        {
-            MessageBox.Show("Hotkey pressed!");
-        }
-
-        // Methods + Event Handlers
-        private void OnSimulateClicked(object sender, RoutedEventArgs e)
-        {
-            MouseFunctions.SimulateLeftClick(Convert.ToInt32(mousePos.X), Convert.ToInt32(mousePos.Y));
-        }
-
         private void OnCloseClicked(object sender, RoutedEventArgs e)
         {
             // If the config files are set up to hide to system tray, do so. Otherwise, the app closes normally.
