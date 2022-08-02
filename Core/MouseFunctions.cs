@@ -11,6 +11,7 @@ namespace TabletMaster
 {
     internal class MouseFunctions
     {
+
         //DLL Imports to use for simulation of left click!
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         static extern bool SetCursorPos(int x, int y);

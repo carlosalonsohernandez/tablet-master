@@ -6,22 +6,26 @@ using System.Windows.Input;
 
 namespace TabletMaster.Core
 {
-    public class HotkeyFunction 
+    public class HotkeyFunction
     {
         // Properties
         public ModifierKeys Modifier { get; set; }
         public Key Key { get; set; }
         public Action CallbackFunction { get; set; }
         public bool CanExecute { get; set; }
+
+        private Dictionary<HotkeyFunction, MousePosition> MousePositionDict = new Dictionary<HotkeyFunction, MousePosition>();
         
 
         // Simple constructor
-        public HotkeyFunction(ModifierKeys modifier, Key key, Action callbackFunc, bool canExecute = true)
+        public HotkeyFunction(ModifierKeys modifier, Key key, Action callbackFunc, MousePosition mousePos = null, bool canExecute = true)
         {
             this.Modifier = modifier;
             this.Key = key;
             this.CallbackFunction = callbackFunc;
             this.CanExecute = canExecute;
+
+            MousePositionDict.Add(this, mousePos);
         }
 
         // We create a constructor that takes strings in order to use XML and app values or strings to instantiate Hotkeys
@@ -80,5 +84,6 @@ namespace TabletMaster.Core
         {
             return $"Modifier: {Modifier} Key: {Key}";
         }
+
     }
 }

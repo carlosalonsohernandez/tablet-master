@@ -45,6 +45,8 @@ namespace TabletMaster.MVVM.View
             tbCurrentMousePos.Text = $"X = {mousePos.X} Y = {mousePos.Y}";
             AppSettings.config.SavedMousePositionX = mousePos.X;
             AppSettings.config.SavedMousePositionY = mousePos.Y;
+
+            var savedMousePos = new MousePosition(mousePos.X, mousePos.Y);
         }
 
         /// <summary>

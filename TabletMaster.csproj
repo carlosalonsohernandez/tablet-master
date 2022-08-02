@@ -168,6 +168,7 @@
     <Compile Include="Core\HotkeyFunction.cs" />
     <Compile Include="Core\HotkeysHandler.cs" />
     <Compile Include="Core\MouseFunctions.cs" />
+    <Compile Include="Core\MousePosition.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
