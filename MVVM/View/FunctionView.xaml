@@ -39,7 +39,7 @@
             
             <Button Name="btnSimulate" Content="Simulate" Margin="10,0,0,0" Height="25" Width="60" VerticalAlignment="Bottom" Click="btnSimulateClicked"/>
         </StackPanel>
-        <Label Content="Current Modifier + Key Combo"
+        <Label Content="Most Recent Modifier + Key Combo"
                Foreground="White"
                FontSize="18"/>
         
@@ -56,6 +56,6 @@
                Foreground="White"
                FontSize="18"/>
 
-        <TextBox Height="30" Margin="5" Width="300" Name="tbHotkeysTracked"/>
+        <TextBox Height="60" Margin="5" Width="300" Name="tbHotkeysTracked"/>
     </StackPanel>
 </UserControl>

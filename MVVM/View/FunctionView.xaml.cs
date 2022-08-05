@@ -71,7 +71,8 @@ namespace TabletMaster.MVVM.View
             }
             else if (cbModifier.SelectedIndex > -1 && textBoxKey.Text.Length > 0)
             {
-                MessageBox.Show("Confirmed!");
+                MessageBox.Show($"Confirmed! Hotkey associated with mouse position: {mousePos.X}, {mousePos.Y}",
+                    "Hotkey Confirmation");
                 AppSettings.config.Modifier = cbModifier.Text;
                 AppSettings.config.Key = textBoxKey.Text;
 
@@ -89,8 +90,11 @@ namespace TabletMaster.MVVM.View
             }
             else
             {
-                MessageBox.Show("Not enough information!");
+                MessageBox.Show("Not enough information!", "ERROR: Hotkey Inputted");
             }
+
+            textBoxKey.Clear();
+            cbModifier.SelectedIndex = -1;
         }
     }
 }
