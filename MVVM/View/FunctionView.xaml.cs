@@ -88,7 +88,7 @@ namespace TabletMaster.MVVM.View
 
                 HotkeysHandler.AddHotkey(newHotkey);
 
-                tbHotkeysTracked.Text = String.Join("\n", HotkeysHandler.getStringHotkeyList());
+                tbHotkeysTracked.Text = String.Join("\n", HotkeysHandler.GetStringHotkeyList());
             }
             else
             {
@@ -97,6 +97,17 @@ namespace TabletMaster.MVVM.View
 
             textBoxKey.Clear();
             cbModifier.SelectedIndex = -1;
+        }
+
+        private void btnSaveClicked(object sender, RoutedEventArgs e)
+        {
+            var hotkeys = HotkeysHandler.GetHotkeyList();
+            SavedHotkeys.Save(hotkeys);
+        }
+
+        private void btnCheckClicked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

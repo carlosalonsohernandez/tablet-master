@@ -61,9 +61,16 @@ namespace TabletMaster.Core
             Hotkeys.Remove(hotkey);
         }
 
-        public static List<String> getStringHotkeyList()
+        public static List<String> GetStringHotkeyList()
         {
             return Hotkeys.ConvertAll(obj => obj.ToString()); 
+        }
+
+        public static List<HotkeyFunction> GetHotkeyList()
+        {
+            var list = Hotkeys;
+
+            return list;
         }
 
         //Gives the hook the callback
