@@ -18,7 +18,7 @@
                    FontSize="18"
                    HorizontalAlignment="Center"/>
 
-        <Label Content="Modifier" Foreground="White" FontSize="18" Margin="290,5,0,0" HorizontalAlignment="Left"/>
+        <Label Content="Modifier        Key" Foreground="White" FontSize="18" Margin="240,5,0,0" HorizontalAlignment="Left"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal">
             <ComboBox Name ="cbModifier" Width="100" ToolTip="The modifier for the keyboard shortcut you will use." 
                   Margin="30,10,0,0" HorizontalAlignment="Left">
