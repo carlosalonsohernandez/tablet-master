@@ -28,6 +28,7 @@ namespace TabletMaster.MVVM.View
             tbCurrentHotkey.Text = $"Modifier: {AppSettings.config.Modifier} Key: {AppSettings.config.Key}";
         }
 
+        // Use regex to find out if text is alphabetic
         public bool IsTextAlphabetic(string content)
         {
             Regex reg = new Regex("[A-Za-z]");
@@ -64,15 +65,16 @@ namespace TabletMaster.MVVM.View
 
         private void btnConfirmClicked(object sender, RoutedEventArgs e)
         {
-            //If the user has selected something on both the comboBox and the textBox
+            // If the user has selected the same keybind that is used for saving the mouse position
             if (textBoxKey.Text.Equals("S"))
             {
                 MessageBox.Show("Error: Key cannot be the same as the save mouse position key!");
             }
+            // If the user has selected something on both the comboBox and the textBox
             else if (cbModifier.SelectedIndex > -1 && textBoxKey.Text.Length > 0)
             {
                 MessageBox.Show($"Confirmed! Hotkey associated with mouse position: {mousePos.X}, {mousePos.Y}",
-                    "Hotkey Confirmation");
+                    "SUCCESS: Hotkey Confirmation");
                 AppSettings.config.Modifier = cbModifier.Text;
                 AppSettings.config.Key = textBoxKey.Text;
 
