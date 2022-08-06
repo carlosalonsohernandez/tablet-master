@@ -64,15 +64,15 @@ namespace TabletMaster.Core
         public static List<String> GetStringHotkeyList()
         {
             List<HotkeyFunction> hotkeys = Hotkeys;
-            // return hotkeys.FindAll(h => h.getMousePos() != null).ConvertAll(h => h.ToString());
-            return Hotkeys.ConvertAll(obj => obj.ToString()); 
+            return hotkeys.FindAll(h => h.getMousePos() != null).ConvertAll(h => h.ToString());
         }
 
         public static List<HotkeyFunction> GetHotkeyList()
         {
             var list = Hotkeys;
 
-            return list;
+   
+            return list.FindAll(h => h.getMousePos() != null);
         }
 
         //Gives the hook the callback

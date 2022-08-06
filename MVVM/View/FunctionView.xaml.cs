@@ -103,8 +103,6 @@ namespace TabletMaster.MVVM.View
         {
             // Get all the current hotkeys
             var hotkeys = HotkeysHandler.GetHotkeyList();
-            //Remove empty function
-            hotkeys.RemoveAt(0);
             
             //Save hotkeys
             SavedHotkeys.Save(hotkeys);
