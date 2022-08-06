@@ -20,29 +20,30 @@ namespace TabletMaster.Config
 
         // This method will check if the saved hotkeys exist and present the user with a choice to use them
 
-        public bool DoesExist()
+        public static void CheckIfExist()
         {
             string filePath = Path.Combine(appFolder, "savedhotkeys.txt");
 
             if (File.Exists(filePath))
             {
-                string message = "Saved hotkeys found! Would you like to use them?";
-                string title = "User Confirmation";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result = MessageBox.Show(message, title, buttons);
+                DialogResult result = MessageBox.Show("Saved hotkeys found! Would you like to use them?", "User Confirmation", buttons);
                 if (result == DialogResult.Yes)
                 {
-                    return true;
+                    UseSavedHotkeys(filePath);
+                    MessageBox.Show("Hotkeys Updated!", "SUCCESS: Hotkeys Updated");
                 }
                 else
                 {
-                    return false;
+                    return;
                 }
 
             }
-
-
-            return false;
+            else
+            {
+                MessageBox.Show("There was no saved hotkeys found!");
+                return;
+            }
         }
 
         // This will save a file containing the savedHotkeys and their values
@@ -63,8 +64,7 @@ namespace TabletMaster.Config
                 if (result == DialogResult.Yes)
                 {
                     File.Delete(filePath);
-                    CreateAndWriteFile(filePath);
-                    MessageBox.Show("File Written!");
+                    CreateAndWriteFile(filePath, hotkeys);
                 }
                 else
                 {
@@ -76,21 +76,23 @@ namespace TabletMaster.Config
             {
                 //Create the directory and create and write the file!
                 Directory.CreateDirectory(appFolder);
-                CreateAndWriteFile(filePath);
-                MessageBox.Show("File Written!");
+                CreateAndWriteFile(filePath, hotkeys);
             }
 
         }
 
-        private static void CreateAndWriteFile(string filePath)
+        private static void CreateAndWriteFile(string filePath, List<HotkeyFunction> hotkeys)
         {
             try
             {
                 using(StreamWriter sw = File.CreateText(filePath))
                 {
-                    sw.WriteLine($"New file created: {DateTime.Now.ToString()}");
-                    sw.WriteLine("One more line!!");
+                    foreach(var hotkey in hotkeys)
+                    {
+                        sw.WriteLine($"{hotkey.Modifier},{hotkey.Key},{hotkey.getMousePos().getMouseX()},{hotkey.getMousePos().getMouseY()}");
+                    }
                 }
+                MessageBox.Show("File Written!", "SUCCESS: File Writing");
             }
             catch (Exception e)
             {
@@ -100,9 +102,23 @@ namespace TabletMaster.Config
         }
 
         // This method will parse the already saved hotkeys and add it to the program
-        public void UseSavedHotkeys()
+        private static void UseSavedHotkeys(string filePath)
         {
+            using (StreamReader sr = File.OpenText(filePath))
+            {
+                string content;
+                while((content = sr.ReadLine()) != null)
+                {
+                    var splitLine = content.Split(',');
+                    var tempMousePos = new MousePosition(Int32.Parse(splitLine[2]), Int32.Parse(splitLine[3]));
+                    var newHotkey = new HotkeyFunction(splitLine[0], splitLine[1], () =>
+                    {
+                        MouseFunctions.SimulateLeftClick(tempMousePos);
+                    }, tempMousePos);
 
+                    HotkeysHandler.AddHotkey(newHotkey);
+                }
+            }
         }
     }
 }

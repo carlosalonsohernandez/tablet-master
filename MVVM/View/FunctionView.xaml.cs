@@ -101,13 +101,19 @@ namespace TabletMaster.MVVM.View
 
         private void btnSaveClicked(object sender, RoutedEventArgs e)
         {
+            // Get all the current hotkeys
             var hotkeys = HotkeysHandler.GetHotkeyList();
+            //Remove empty function
+            hotkeys.RemoveAt(0);
+            
+            //Save hotkeys
             SavedHotkeys.Save(hotkeys);
         }
 
         private void btnCheckClicked(object sender, RoutedEventArgs e)
         {
-
+            SavedHotkeys.CheckIfExist();
+            tbHotkeysTracked.Text = String.Join("\n", HotkeysHandler.GetStringHotkeyList());
         }
     }
 }

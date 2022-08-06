@@ -55,12 +55,16 @@ namespace TabletMaster.Core
         {
             switch (modifier)
             {
+                case "Control":
                 case "CTRL":
                     return ModifierKeys.Control;
+                case "Alt":
                 case "ALT":
                     return ModifierKeys.Alt;
+                case "Shift":
                 case "SHIFT":
                     return ModifierKeys.Shift;
+
                 default:
                     return ModifierKeys.None;
             }
