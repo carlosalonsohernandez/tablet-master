@@ -40,10 +40,10 @@
     <ApplicationIcon>appicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>0ED0AD686D1B63CE876E3E4A4F392A419F3A894A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>B81011B2FD4B8B2A3CFAC8B25E5E5F1BC4B51C31</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>TabletMaster_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>TabletMaster_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -225,6 +225,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Config\config.json" />
+    <None Include="TabletMaster_1_TemporaryKey.pfx" />
     <None Include="TabletMaster_TemporaryKey.pfx" />
     <Resource Include="Fonts\Poppins.ttf" />
     <None Include="packages.config" />
